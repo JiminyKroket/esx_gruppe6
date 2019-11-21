@@ -476,11 +476,11 @@ OpenSecurityActionsMenu = function()
 					Citizen.Wait(1)
 				end
 				TaskPlayAnim(player, dict, 'enter', 8.0, 8.0, 1500, 1, 0.0, false, false, false)
+				TriggerServerEvent('esx_gruppe6:showBadge', ID)
 				Citizen.Wait(1500)
 				TaskPlayAnim(player, dict, 'idle_a', 8.0, 8.0, 300, 1, 0.0, false, false, false)
 				Citizen.Wait(300)
 				TaskPlayAnim(player, dict, 'exit', 8.0, 8.0, 1500, 1, 0.0, false, false, false)
-				TriggerServerEvent('esx_gruppe6:showBadge', ID)
 			end
 		elseif data.current.value == 'intruder_interaction' then
 			
@@ -1021,7 +1021,7 @@ CheckTime = function(ped, x, y, z, level, blip)
 		local dis = GetDistanceBetweenCoords(pos, x, y, z, true)
 		if dis > 50 then
 			Citizen.Wait(20000) -- 20 second wait to decrease chance of deleting ped in hands(can still happen js)
-			TriggerServerEvent('esx_gruppe6:jobPay', level, (JobTimer / 100))
+			TriggerServerEvent('esx_gruppe6:jobPay', level, (JobTimer / 1000))
 			onJob = false
 			DeleteEntity(ped)
 			Intruder = {}
@@ -1070,7 +1070,9 @@ AddEventHandler('esx_gruppe6:runTask', function(location, level, blip)
 			DeleteEntity(chair)
 			ClearPedTasks(ped)
 		end
-	end 
+	end
+	SetNewWaypoint(x, y)
+	ESX.ShowNotification('A waypoint has been sent to your gps')
 	if level == 'low' then
 		local chance = math.random(1, 5)
 		if chance > 2 then
