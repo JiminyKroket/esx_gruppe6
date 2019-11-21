@@ -24,19 +24,19 @@ AddEventHandler('esx_gruppe6:jobPay', function(level, extra)
 		local mid = Config.MidPayout
 		local hi  = Config.HighPayout
 		if level == 'low' then
-			TriggerClientEvent('esx:showNotification', _source, 'You have satisfied this contract, please accept your payment')
+			TriggerClientEvent('esx:showNotification', _source, 'You have satisfied this contract, please accept your payment of $ '.. (low + extra))
 			xPlayer.addBank(low + extra)
 			TriggerEvent('esx_addonaccount:getSharedAccount', 'society_security', function(account)
 				account.addMoney(low * 2 + extra)
 			end)
 		elseif level == 'mid' then
-			TriggerClientEvent('esx:showNotification', _source, 'You have satisfied this contract, please accept your payment')
+			TriggerClientEvent('esx:showNotification', _source, 'You have satisfied this contract, please accept your payment of $ '.. (mid + extra))
 			xPlayer.addBank(mid + extra)
 			TriggerEvent('esx_addonaccount:getSharedAccount', 'society_security', function(account)
 				account.addMoney(mid * 2 + extra)
 			end)
 		elseif level == 'high' then
-			TriggerClientEvent('esx:showNotification', _source, 'You have satisfied this contract, please accept your payment')
+			TriggerClientEvent('esx:showNotification', _source, 'You have satisfied this contract, please accept your payment of $ '.. (hi + extra))
 			xPlayer.addBank(hi + extra)
 			TriggerEvent('esx_addonaccount:getSharedAccount', 'society_security', function(account)
 				account.addMoney(hi * 2 + extra)
