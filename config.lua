@@ -9,11 +9,11 @@ Config.EnablePlayerManagement   = true
 Config.EnableArmoryManagement   = true
 
 Config.EnableJobBlip            = true -- enable blips for colleagues, requires esx_society
-Config.UseCarPack				= true -- Use car pack suggested on download
+Config.UseCarPack		= false -- Use car pack suggested on download
 
-Config.LowPayout				= 100
-Config.MidPayout				= 150
-Config.HighPayout				= 250
+Config.LowPayout		= 100
+Config.MidPayout		= 150
+Config.HighPayout		= 250
 
 Config.SecurityStations = {
 
