@@ -1020,13 +1020,18 @@ CheckTime = function(ped, x, y, z, level, blip)
 		local pos = GetEntityCoords(ped)
 		local dis = GetDistanceBetweenCoords(pos, x, y, z, true)
 		if dis > 50 then
-			Citizen.Wait(20000) -- 20 second wait to decrease chance of deleting ped in hands(can still happen js)
-			TriggerServerEvent('esx_gruppe6:jobPay', level, (JobTimer / 1000))
-			onJob = false
-			DeleteEntity(ped)
-			Intruder = {}
-			RemoveBlip(blip)
-			break
+			local ply = PlayerPedId()
+			local loc = GetEntityCoords(ply)
+			local ran = GetDistanceBetweenCoords(loc, pos, true)
+			if ran < 5 then
+				Citizen.Wait(20000) -- 20 second wait to decrease chance of deleting ped in hands(can still happen js)
+				TriggerServerEvent('esx_gruppe6:jobPay', level, (JobTimer / 1000))
+				onJob = false
+				DeleteEntity(ped)
+				Intruder = {}
+				RemoveBlip(blip)
+				break
+			end
 		end
 		if JobTimer < 1 then
 			ESX.ShowNotification('You have not satisfied the customer')
