@@ -714,7 +714,7 @@ AddEventHandler('esx_gruppe6:transport', function()
 			ESX.ShowNotification('The civilian refuses to walk to the car themself')
 		else
 			if IsAnyVehicleNearPoint(coords, 3.0) then
-				local vehicle = GetClosestVehicle(coords, 3.0, 0, 70)
+				local vehicle = ESX.Game.GetVehicleInDirection()
 
 				if DoesEntityExist(vehicle) then
 					RemovePedFromGroup(intruder)
@@ -729,6 +729,8 @@ AddEventHandler('esx_gruppe6:transport', function()
 					intruderInCar = true
 					Citizen.Wait(5000)
 					SetPedConfigFlag(intruder, 292, true)
+				else
+					ESX.ShowNotification('You must face the vehicle')
 				end
 			else
 				ESX.ShowNotification('You must be closer to the car')
