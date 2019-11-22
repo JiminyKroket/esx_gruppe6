@@ -526,7 +526,7 @@ OpenSecurityActionsMenu = function()
 					align    = 'top-left',
 					elements = {
 						{label = 'Check for info', action = 'vehicle_info'},
-						{label = 'Call for impound', actiobn = 'impound'}
+						{label = 'Call for impound', action = 'impound'}
 					}
 				}, function(data2, menu2)
 					local coords  = GetEntityCoords(player)
