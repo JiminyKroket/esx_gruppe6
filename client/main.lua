@@ -298,6 +298,7 @@ OpenVehicleSpawnerMenu = function(type, station, part, partNum)
 					ESX.ShowNotification('Vehicle ready')
 					table.insert(spawnedVehicles, vehicle)
 				end)
+				menu.close()
 			end
 		end
 	end, function(data, menu)
