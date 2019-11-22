@@ -350,18 +350,21 @@ OpenJobSelectionMenu = function()
 		
 		if data.current.action == 'low' then
 			if onJob == false then
+				menu.close()
 				TriggerServerEvent('esx_gruppe6:startIntrusion', 'low')
 			else
 				ESX.ShowNotification('You already have a current job')
 			end
 		elseif data.current.action == 'mid' then
 			if onJob == false then
+				menu.close()
 				TriggerServerEvent('esx_gruppe6:startIntrusion', 'mid')
 			else
 				ESX.ShowNotification('You already have a current job')
 			end
 		elseif data.current.action == 'high' then
 			if onJob == false then
+				menu.close()
 				TriggerServerEvent('esx_gruppe6:startIntrusion', 'high')
 			else
 				ESX.ShowNotification('You already have a current job')
