@@ -325,6 +325,11 @@ OpenVehicleInfoMenu = function(vehicleData)
 	end, vehicleData.plate)
 end
 
+ImpoundVehicle = function(vehicle)
+	SetEntityAsNoLongerNeeded(vehicle)
+	DeleteEntity(vehicle)
+end
+
 OpenJobSelectionMenu = function()
 
 	local ped = PlayerPedId()
