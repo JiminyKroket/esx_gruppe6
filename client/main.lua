@@ -546,8 +546,8 @@ OpenSecurityActionsMenu = function()
 							local vehicleData = ESX.Game.GetVehicleProperties(vehicle)
 							OpenVehicleInfoMenu(vehicleData)
 						elseif action == 'impound' then				
-							ESX.ShowHelpNotification('Calling for impound')
-							TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_STAND_MOBILE_UPRIGHT', 0, true)
+							ESX.ShowNotification('Calling for impound')
+							TaskStartScenarioInPlace(player, 'WORLD_HUMAN_STAND_MOBILE_UPRIGHT', 0, true)
 							Citizen.Wait(10000)
 							ClearPedTasks(player)
 							Citizen.Wait(20000) -- sleep the entire script to let stuff sink back to reality
